@@ -1,0 +1,14 @@
+<div>
+    @currentcount
+    <button @onclick = "Inc">Inc</button>
+</div>
+
+@code
+{
+    private int currentcount = 0;
+
+    private void Inc()
+    {
+        currentcount++;
+    }
+}

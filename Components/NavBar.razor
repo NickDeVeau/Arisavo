@@ -1,0 +1,39 @@
+@inject NavigationManager NavigationManager
+
+<nav class="navbar">
+    <div class="navbar_title">ARISAVO</div>
+    <EditForm Model = "@this" OnValidSubmit="HandleValidSubmit">
+        <div>
+            <InputText id = "query" @bind-Value = "query" class = "search_bar"/>
+        </div>
+    </EditForm>
+
+    <button class = "nav_button" style = "right: 360px; " @onclick = 'NavHome'>Home</button>
+    <button class = "nav_button" style = "right: 291px; " @onclick = 'NavCart'>Cart</button>
+    <button class = "nav_button" style = "right: 171px;" @onclick = 'NavCheckout'>Checkout</button>
+</nav>
+
+@code {
+    private string? query;
+
+    private void HandleValidSubmit()
+    {
+        // Implement your search logic here
+        Console.WriteLine($"Searching for: {query}");
+    }
+
+    private void NavHome()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+       private void NavCart()
+    {
+        NavigationManager.NavigateTo("/cart");
+    }
+
+       private void NavCheckout()
+    {
+        NavigationManager.NavigateTo("/checkout");
+    }
+}
